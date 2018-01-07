@@ -11,32 +11,41 @@
 - 时间：2018.1.6
 
 #### 1. java.lang.Object
-####  hashcode
-##### This is typically implemented by converting the internal address of the object into an integer, but this implementation technique is not required by the Java™ programming language.(这通常是通过将对象的内部地址转换为整数来实现的，但是Java编程语言不需要这种实现技术。)
+#### native 一个Native Method就是一个Java调用非Java代码的接口。
 
-#### notify notifyAll wait()
-##### 线程唤醒 notify notifyAll （唤醒无法进行下一步直至获取到释放出来的锁（The awakened thread will not be able to proceed until the current thread relinquishes the lock on this object），自由竞争方式获取。
-##### 等待 wait() wait(long timeout) wait(long timeout, int nanos) 活动的线程去wait状态。wait()=wait(0) ，wait(long timeout, int nanos)精确到纳秒
+##### registerNatives()
+###### 在内存中分配空间
 
-#### getClass()  
-##### （todo 看完jvm再理解这句话）Returns the runtime class of this Object. The returned Class object is the object that is locked by static synchronized methods of the represented class
+#####  hashcode
+###### This is typically implemented by converting the internal address of the object into an integer, but this implementation technique is not required by the Java™ programming language.(这通常是通过将对象的内部地址转换为整数来实现的，但是Java编程语言不需要这种实现技术。)
 
-#### clone()
-##### 浅拷贝 obeject must the interface Cloneable 
-> ##### By convention, the returned object should be obtained by calling super.clone. If a class and all of its superclasses (except Object) obey this convention, it will be the case that x.clone().getClass() == x.getClass().By convention, the object returned by this method should be independent of this object (which is being cloned). To achieve this independence, it may be necessary to modify one or more fields of the object returned by super.clone before returning it. Typically, this means copying any mutable objects that comprise the internal "deep structure" of the object being cloned and replacing the references to these objects with references to the copies. If a class contains only primitive fields or references to immutable objects, then it is usually the case that no fields in the object returned by super.clone need to be modified. 
+##### notify notifyAll wait()
+###### 线程唤醒 notify notifyAll （唤醒无法进行下一步直至获取到释放出来的锁（The awakened thread will not be able to proceed until the current thread relinquishes the lock on this object），自由竞争方式获取。
+###### 等待 wait() wait(long timeout) wait(long timeout, int nanos) 活动的线程去wait状态。wait()=wait(0) ，wait(long timeout, int nanos)精确到纳秒
 
-#### equals(Object obj)
-##### reflexive自反性 symmetric对称性 transitive传递性 consistent一致性
+##### getClass()  
+###### （todo 看完jvm再理解这句话）Returns the runtime class of this Object. The returned Class object is the object that is locked by static synchronized methods of the represented class
 
-#### toString(Object obj) 建议重写
-##### 普通 getClass().getName() + '@' + Integer.toHexString(hashCode())
+##### clone()
+###### 浅拷贝 obeject must the interface Cloneable 
+> ###### By convention, the returned object should be obtained by calling super.clone. If a class and all of its superclasses (except Object) obey this convention, it will be the case that x.clone().getClass() == x.getClass().By convention, the object returned by this method should be independent of this object (which is being cloned). To achieve this independence, it may be necessary to modify one or more fields of the object returned by super.clone before returning it. Typically, this means copying any mutable objects that comprise the internal "deep structure" of the object being cloned and replacing the references to these objects with references to the copies. If a class contains only primitive fields or references to immutable objects, then it is usually the case that no fields in the object returned by super.clone need to be modified. 
+
+##### equals(Object obj)
+###### reflexive自反性 symmetric对称性 transitive传递性 consistent一致性
+
+##### toString(Object obj) 建议重写
+###### 普通 getClass().getName() + '@' + Integer.toHexString(hashCode())
 
 
-#### finalize()
-##### 垃圾回收器 用来结束类。抛出的异常，都会被忽略。但是类依旧会被终结，释放内存
+##### finalize()
+###### 垃圾回收器 用来结束类。抛出的异常，都会被忽略。但是类依旧会被终结，释放内存 
 
 #### 2. Class
-####
+1.toString  -->"class" or "interface"   toGenericString()-->modifiers and type parameters  
+2.isPrimitive() 是否是基本类型 isAnnotation() 是否是注解annotation（all annotation types are also interfaces） isSynthetic() 是否是人造的 isArray() isInterface() isAssignableFrom(Class<?> cls)（确认类是否是原类的超类或同类）isInstance(Object obj)动态等价于Instanceof isEnum()
+3.forName0 
+
+##### 
 
 #### 第二级别：深刻理解该级别包含的包如下：
 - [ ] java.lang.reflect
