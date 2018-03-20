@@ -18,6 +18,14 @@ public class ClassSearch {
         一般都第三种，一个字符串可以传入也可写在配置文件中等多种方法。
          */
 
+        /*
+        基本类型可以通过".class"语法获得相应的类，但也可以通过其包裹类的TYPE属性（field）获得。
+
+        Class c = Double.TYPE; // 即 double.class
+
+        Class c = Void.TYPE; // void.class
+         */
+
         //第一种方式获取Class对象
         Student stu1 = new Student();//这一new 产生一个Student对象，一个Class对象。
         java.lang.Class stuClass = stu1.getClass();//获取Class对象
