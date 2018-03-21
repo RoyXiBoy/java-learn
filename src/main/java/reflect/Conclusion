@@ -5,6 +5,8 @@
 4、想要使用对象方法。使用Method反射出对象的方法。method.invoke(obj,parameter)执行方法。
 5、执行别人的main函数。使用Method反射时候，传入main即可。
 
+IOC的思想就是反射。
+
 内省
 主要是操作javabean的。javabean就是规范。这个类想保存的所有信息，以get、set方法对外提供存取接口，就能叫javabean。
 1、PropertyDescriptor 指定要找的属性
@@ -15,3 +17,5 @@
 类似于： 买手机，可以直接找 厂家。也可以找代理商。 代理商能帮你贴完膜再给你。
 1、 有提供 功能的类
 2、 代理类。代理类里面只需要重写一个方法。Proxy.newProxyInstance里的 invoke
+
+spring aop 的使用方法就是 代理。

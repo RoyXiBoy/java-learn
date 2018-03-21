@@ -14,6 +14,7 @@ import java.nio.channels.FileChannel;
 
  写入数据到Buffer
  调用flip()方法
+
  从Buffer中读取数据
  调用clear()方法或者compact()方法
 
