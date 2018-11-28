@@ -18,6 +18,30 @@
                 </configuration>
             </plugin>
         </plugins>
+        <!--
+            plugins 和 pluginManagement 的区别，和我们前面研究过的 dependencies 和 dependencyManagement 的区别是非常类似的。
+            plugins 下的 plugin 是真实使用的，而 pluginManagement 下的 plugins 下的 plugin 则仅仅是一种声明，子项目中可以对 pluginManagement 下的 plugin 进行信息的选择、继承、覆盖等。
+            作者：B8613A
+            来源：CSDN
+            原文：https://blog.csdn.net/liupeifeng3514/article/details/80236827    -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
     <dependencies>
@@ -40,4 +64,16 @@
         </dependency>
 
     </dependencies>
+
+    <!-- 配地址的  用户名密码配在setting文件里-->
+    <distributionManagement>
+        <repository>
+            <id>release</id>
+            <url></url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url></url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

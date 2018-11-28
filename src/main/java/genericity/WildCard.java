@@ -16,7 +16,7 @@ public class WildCard {
     List<? extends String> listSubAClass;
 
     //存放BClass的父类
-    List<? extends String> listSuperBClass;
+    List<? super String> listSuperBClass;
 
     /**
      * 通配符不能用在泛型类和泛型方法声明中
